@@ -3,7 +3,10 @@ require 'rake/testtask'
 desc 'Run all tests'
 task :test do
   $LOAD_PATH.unshift(File.expand_path('test'))
-  require 'redgreen'
+  begin
+    require 'redgreen'
+  rescue LoadError
+  end
   require 'test/unit'  
   Dir['test/**/test_*.rb'].each {|test| require test }
 end
