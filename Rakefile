@@ -1,5 +1,13 @@
+# Getting started with development on cloud-crowd:
+#     gem install hoe
+#     rake install_gem   # will install any development dependencies you need
+#     rake setup_test_database
+#     rake test
+
 require 'rubygems'
 require 'hoe'
+
+Hoe.plugin :newgem
 
 Hoe.spec 'cloud-crowd' do
   developer 'Jeremy Ashkenas', 'jeremy@documentcloud.org'
@@ -25,6 +33,7 @@ Hoe.spec 'cloud-crowd' do
   extra_dev_deps << ['notahat-machinist',   '>= 1.0.3']
   extra_dev_deps << ['rack-test',           '>= 0.4.1']
   extra_dev_deps << ['mocha',               '>= 0.9.7']
+  extra_dev_deps << ['newgem',              '>= 1.5.2']
 end
 
 desc "Setup the test database"
@@ -33,8 +42,3 @@ task :setup_test_database do
   sh "cd test/config && ruby ../../bin/crowd load_schema"
 end
 
-# Getting started with development on cloud-crowd:
-#     gem install hoe
-#     rake install_gem   # will install any development dependencies you need
-#     rake setup_test_database
-#     rake test
