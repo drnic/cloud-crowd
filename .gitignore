@@ -14,3 +14,4 @@ lib/daemons/*.pid
 lib/daemons/*.output
 lib/daemons/*.log
 *.gem
+pkg
