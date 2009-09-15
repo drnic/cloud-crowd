@@ -32,3 +32,9 @@ task :setup_test_database do
   sh "mysqladmin -uroot create cloud_crowd_test"
   sh "cd test/config && ruby ../../bin/crowd load_schema"
 end
+
+# Getting started with development on cloud-crowd:
+#     gem install hoe
+#     rake install_gem   # will install any development dependencies you need
+#     rake setup_test_database
+#     rake test
