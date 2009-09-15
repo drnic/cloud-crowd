@@ -26,3 +26,9 @@ Hoe.spec 'cloud-crowd' do
   extra_dev_deps << ['rack-test',           '>= 0.4.1']
   extra_dev_deps << ['mocha',               '>= 0.9.7']
 end
+
+desc "Setup the test database"
+task :setup_test_database do
+  sh "mysqladmin -uroot create cloud_crowd_test"
+  sh "cd test/config && ruby ../../bin/crowd load_schema"
+end
